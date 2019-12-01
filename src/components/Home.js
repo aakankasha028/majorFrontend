@@ -15,7 +15,7 @@ class Home extends Component {
 			Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Sem nulla pharetra diam sit amet nisl.
 			</p>
 
-			<button>Get Started</button>
+			<button >Get Started</button>
 			</div>
 		);
 	}
