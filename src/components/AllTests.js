@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardText, CardImg, CardImgOverlay } from 'reactstrap';
 import axios from 'axios';
 import Test from './Test.js';
-import { Link } from 'react-router-dom';
-import '../styles/cards.css';
 
 class AllTests extends Component {
     constructor(props) {
@@ -42,7 +39,7 @@ class AllTests extends Component {
                                         <img
                                             src="https://www.news-medical.net/image.axd?picture=2019%2F3%2FGroup_of_friends_having_drinks_whiskey_at_the_night_club_after_work_._Young_men_drink_whiskey_and_enjoying_at_a_bar_toasting_cocktails-bluedog_studios.jpg"
                                             className="card-img-top"
-                                            alt="photo"/>
+                                            alt="Man, drinking"/>
                                     </div>
 
                                     <div className="card-body">

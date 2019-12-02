@@ -1,5 +1,18 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import '../styles/LoginRegister.css';
+import FormPage from './FormPage.js';
+import {
+    MDBContainer,
+    MDBRow,
+    MDBCol,
+    MDBCard,
+    MDBCardBody,
+    MDBModalFooter,
+    MDBIcon,
+    MDBCardHeader,
+    MDBBtn,
+    MDBInput
+} from "mdbreact";
 
 // todo: 1) Logout - would happen with navbar
 
@@ -46,49 +59,109 @@ class LoginRegister extends Component {
 	renderRegister = () => {
 		return (
 			<form onSubmit={(e) => this.handleRegisterSubmit(e)}>
-				<table>
-				<tr>
-				<label for="name">Name</label>
-				<input id="name" type="text" onChange={(e) => this.handleRegisterDetails(e, "name")} required />
-				</tr>
-				<tr>
-				<label for="dob">Date of birth</label>
-				<input type="date" id="dob" onChange={(e) => this.handleRegisterDetails(e, "dob")} required />
-				</tr>
-				<tr>
-				<label for="gender">Gender</label>
-				<select id = "gender" onChange={(e) => this.handleRegisterDetails(e, "gender")}>
-				<option value="Male">Male</option>
-				<option value="Female">Female</option>
-				<option value="Other">Prefer not to state</option>
-				</select>
-				</tr>
-				<tr>
-				<label for="address">Address</label>
-				<input id="address" type="text" onChange={(e) => this.handleRegisterDetails(e, "address")} required />
-				</tr>
-				<tr>
-				<label for="nationality">Nationality</label>
-				<input id="nationality" type="text" onChange={(e) => this.handleRegisterDetails(e, "nationality")} required />
-				</tr>
-				<tr>
-				<label for="email">Email</label>
-				<input id="email" type="email" onChange={(e) => this.handleRegisterDetails(e, "email")} required />
-				</tr>
-				<tr>
-				<label for="phone">Phone</label>
-				<input id="phone" type="phone" onChange={(e) => this.handleRegisterDetails(e, "phone")} />
-				</tr>
-				<tr>
-				<label for="password">Password</label>
-				<input id="password" type="password" onChange={(e) => this.handleRegisterDetails(e, "password")} required />
-				</tr>
-				<tr>
-				<label for="cpassword">Confirm Password</label>
-				<input id="cpassword" type="password" onChange={(e) => this.handleRegisterDetails(e, "confirmPassword")} required />
-				</tr>
-				</table>
-				<input type="submit" value="Register" />
+                <div className="grey-text text-left">
+                    <MDBInput
+                        label="Your name"
+                        icon="user"
+                        id="name"
+                        group
+                        type="text"
+                        validate
+                        error="wrong"
+                        success="right"
+                        required
+                    />
+                    <MDBInput
+                        label="Date of Birth"
+                        id="dob"
+                        icon="calendar-alt"
+                        group
+                        type="date"
+                        required
+                    />
+                    <div className="genderborder">
+                        <MDBIcon icon="female"/>
+                    <select className="ss" aria-required="true"> id = "gender" onChange={(e) => this.handleRegisterDetails(e, "gender")}>
+                        <option value="" disabled selected>Choose your gender</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Prefer not to tell</option>
+                    </select>
+                    </div>
+                    <MDBInput
+                        label="Your address"
+                        icon="home"
+                        id="address"
+                        group
+                        type="text"
+                        validate
+                        error="wrong"
+                        success="right"
+                        required
+                    />
+                    <MDBInput
+                        label="Your Nationality"
+                        icon="flag"
+                        id="nationality"
+                        group
+                        type="text"
+                        validate
+                        error="wrong"
+                        success="right"
+                        required
+                    />
+                    <MDBInput
+                        label="Your Phone Number"
+                        id="phone"
+                        icon="phone"
+                        group
+                        length="10"
+                        type="tel"
+                        validate
+                        error="wrong"
+                        success="right"
+                    />
+                    <MDBInput
+                        label="Your email"
+                        id="email"
+                        icon="envelope"
+                        group
+                        type="email"
+                        validate
+                        error="wrong"
+                        success="right"
+                        required
+                    />
+                    <MDBInput
+                        label="Your password"
+                        id="password"
+                        icon="lock"
+                        group
+                        type="password"
+                        validate
+                        required
+                    />
+                    <MDBInput
+                        label="Confirm your password"
+                        icon="exclamation-triangle"
+                        group
+                        id="cpassword"
+                        type="password"
+                        validate
+                        error="wrong"
+                        success="right"
+                        required
+                    />
+                </div>
+                <div className="text-center mt-4 btnlr">
+                    <MDBBtn
+                        color="light-blue"
+                        className="mb-3"
+                        type="submit"
+                    >
+                        Register
+                    </MDBBtn>
+                </div>
 			</form>
 		);
 	}
@@ -96,17 +169,38 @@ class LoginRegister extends Component {
 	renderLogin = () => {
 		return (
 			<form onSubmit={(e) => this.handleLoginSubmit(e)}>
-				<table>
-				<tr>
-				<label for="email">Email</label>
-				<input id="email" type="email" onChange={(e) => this.handleLoginDetails(e, "email")} required />
-				</tr>
-				<tr>
-				<label for="password">Password</label>
-				<input id="password" type="password" onChange={(e) => this.handleLoginDetails(e, "password")} required />
-				</tr>
-				</table>
-				<input type="submit" value="Login" />
+                <div className="grey-text text-left">
+                    <MDBInput
+                        label="Type your email"
+                        icon="envelope"
+                        group
+                        id="email"
+                        type="email"
+                        validate
+                        error="wrong"
+                        success="right"
+                        required
+                    />
+                    <MDBInput
+                        label="Type your password"
+                        icon="lock"
+                        group
+                        id="password"
+                        type="password"
+                        validate
+                        required
+                    />
+                </div>
+
+                <div className="text-center mt-4 btnlr">
+                    <MDBBtn
+                        color="light-blue"
+                        className="mb-3"
+                        type="submit"
+                    >
+                        Login
+                    </MDBBtn>
+                </div>
 			</form>
 		);
 	}
@@ -114,10 +208,18 @@ class LoginRegister extends Component {
 	render () {
 		var login = this.state.login;
 		return (
-		<div>
-		  	<button onClick={() => this.setState({login: true}) }>Login</button> &emsp;
-		  	<button onClick={() => this.setState({login: false}) }>Register</button>
+			<div>
+                <MDBCardHeader className="form-header deep-blue-gradient rounded">
+                    <h3 className="my-3">
+                        <MDBIcon icon="lock" /> <button className={"lrButtonsNot"} onClick={() => this.setState({login: true}) }>Login</button> &emsp;
+                        /
+                        <button className={"lrButtonsNot"} onClick={() => this.setState({login: false}) }>Register</button> <MDBIcon icon="user-plus" />
+                    </h3>
+                </MDBCardHeader>
+				<div className={"fields"}>
 		  {login === true ? this.renderLogin() : this.renderRegister() }
+				</div>
+
 		</div>
 		);
 	}

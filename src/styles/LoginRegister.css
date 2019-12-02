@@ -1,0 +1,25 @@
+.lrButtonsNot{
+    margin: 2%;
+    background: transparent;
+    border: 0px;
+}
+
+.ss{
+    border: 0px;
+}
+
+.genderborder{
+    box-sizing: content-box;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    transition: border-color 0.15s
+}
+
+
+::after, ::before {
+    box-sizing: border-box;
+}
