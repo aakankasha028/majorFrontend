@@ -37,7 +37,7 @@ class LoginRegister extends Component {
 	handleRegisterSubmit = (event) => {
 		event.preventDefault();
 		if (this.state.userDetails.password !== this.state.userDetails.confirmPassword) {
-			{alert("n")}
+			{alert("Password and Confirm Password don't match. Please try again");}
 		}
 		// make axios post request
 		localStorage.setItem("email", this.state.loginDetails.email);
@@ -58,7 +58,7 @@ class LoginRegister extends Component {
 				<tr>
 				<label for="age">Age</label>
 				<select id="age" defaultValue={"49"} onChange={(e) => this.handleRegisterDetails(e, "age")}>
-				{ages.map((key, value) =>
+				{ages.map((value, key) =>
 					<option value={[value]}>{ages[value]}</option>
 				)}
 				</select>
@@ -82,6 +82,10 @@ class LoginRegister extends Component {
 				<tr>
 				<label for="email">Email</label>
 				<input id="email" type="email" onChange={(e) => this.handleRegisterDetails(e, "email")} required />
+				</tr>
+				<tr>
+				<label for="phone">Phone</label>
+				<input id="phone" type="phone" onChange={(e) => this.handleRegisterDetails(e, "phone")} />
 				</tr>
 				<tr>
 				<label for="password">Password</label>
