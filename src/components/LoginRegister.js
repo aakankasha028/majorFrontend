@@ -44,10 +44,6 @@ class LoginRegister extends Component {
 	}
 
 	renderRegister = () => {
-		var ages = [];
-		for (var i = 1; i <= 100; i++) {
-			ages.push(i);
-		}
 		return (
 			<form onSubmit={(e) => this.handleRegisterSubmit(e)}>
 				<table>
@@ -56,12 +52,8 @@ class LoginRegister extends Component {
 				<input id="name" type="text" onChange={(e) => this.handleRegisterDetails(e, "name")} required />
 				</tr>
 				<tr>
-				<label for="age">Age</label>
-				<select id="age" defaultValue={"49"} onChange={(e) => this.handleRegisterDetails(e, "age")}>
-				{ages.map((value, key) =>
-					<option value={[value]}>{ages[value]}</option>
-				)}
-				</select>
+				<label for="dob">Date of birth</label>
+				<input type="date" id="dob" onChange={(e) => this.handleRegisterDetails(e, "dob")} required />
 				</tr>
 				<tr>
 				<label for="gender">Gender</label>
@@ -102,10 +94,6 @@ class LoginRegister extends Component {
 	}
 
 	renderLogin = () => {
-		var ages = [];
-		for (var i = 1; i <= 100; i++) {
-			ages.push(i);
-		}
 		return (
 			<form onSubmit={(e) => this.handleLoginSubmit(e)}>
 				<table>
