@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Test extends Component {
 	render() {
@@ -9,7 +10,8 @@ class Test extends Component {
 				<i title="Not completed yet means either you have not given the test or the last time you gave the test was long time ago, which means it has become stale">
 				What does "Not completed yet" mean?
 				</i>
-			{/*<a href="test/test={this.props.testName}">Attempt test</a>*/}
+				<br />
+				<Link to={"/tests?test="+this.props.testName}>Attempt test</Link>
 			</div>
 			);
 	}
