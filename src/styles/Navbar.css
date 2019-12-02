@@ -4,6 +4,7 @@
 
 .navbar:not(.top-nav-collapse) {
     background: black !important;
+    padding-bottom: auto;
 }
 
 @media (max-width: 991px) {

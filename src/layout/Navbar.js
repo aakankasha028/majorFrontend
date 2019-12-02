@@ -13,9 +13,10 @@ class Navbar extends Component {
         this.setState({ isOpen: !this.state.isOpen });
     }
 
+
     render() {
         return (
-                <MDBNavbar className={"navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar"}>
+                <MDBNavbar className={"navbar navbar-expand-lg navbar-dark sticky-top scrolling-navbar"}>
                     <MDBNavbarBrand>
                         <strong>Navbar</strong>
                     </MDBNavbarBrand>

@@ -1,9 +1,8 @@
 
 .background {
-    background: url("../resources/2.jpg");
+    background: url("../resources/2.jpg") repeat;
     height: 100%;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     border: 2px solid black;
 }
@@ -17,7 +16,7 @@
 }
 
 .transbox p {
-    margin: 5%;
+    margin: 10%;
     font-weight: bold;
     color: #000000;
 }

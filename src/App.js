@@ -9,9 +9,9 @@ import LoginRegister from './components/LoginRegister';
 function App() {
   return (
     <Router>
-      <div className="App">
         <Navbar />
-         <div style={{marginBottom: '5rem'}} />
+        {/* <div style={{marginBottom: '5rem'}} />*/}
+        <div className="App">
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/all-tests' component={AllTests} />
