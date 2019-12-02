@@ -1,0 +1,23 @@
+
+.background {
+    background: url("../resources/2.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid black;
+}
+
+.transbox {
+    margin: 15%;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+.transbox p {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+}

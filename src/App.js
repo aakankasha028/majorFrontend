@@ -11,11 +11,13 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+         <div style={{marginBottom: '5rem'}} />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/all-tests' component={AllTests} />
           <Route path='/login-register' component={LoginRegister} />
         </Switch>
+
       </div>
     </Router>
   );
