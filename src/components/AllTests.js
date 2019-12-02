@@ -49,10 +49,6 @@ class AllTests extends Component {
                                         <h4 className="card-title"><Test testName={test["testName"]}
                                                                          completedDate={test["completedOn"]}/></h4>
 
-                                        <p className="card-text"><i
-                                            title="Not completed yet means either you have not given the test or the last time you gave the test was long time ago, which means it has become stale">
-                                            What does "Not completed yet" mean?
-                                        </i></p>
                                         <a href={"/tests?test=" + this.props.testName} className="btn btn-primary">Attempt
                                             Test</a>
                                     </div>
