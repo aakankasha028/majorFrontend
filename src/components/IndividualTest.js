@@ -13,15 +13,18 @@ class IndividualTest extends Component {
 	}
 
 	componentDidMount() {
-		var testName = this.props.location.query.test
-		axios.get("").then(resp => {
+		var testName = this.props.location.search.split("=")[1];
+		{/*axios.get("").then(resp => {
 			console.log()
-		}
+		}*/}
 	}
 
 	render() {
 
 		return (
+			<h2>Individual Test Page</h2>
 			);
 	}	
 }
+
+export default IndividualTest;

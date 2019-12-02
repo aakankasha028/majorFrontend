@@ -5,6 +5,8 @@ import Home from './components/Home';
 import AllTests from './components/AllTests';
 import Navbar from './layout/Navbar.js';
 import LoginRegister from './components/LoginRegister';
+import IndividualTest from './components/IndividualTest';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -16,7 +18,8 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route path='/all-tests' component={AllTests} />
           <Route path='/login-register' component={LoginRegister} />
-        {/*<Route path='/test/' component={IndividualTest} />*/}
+          <Route path='/tests/' component={IndividualTest} />
+          <Route path='*' component={NotFound} />
         </Switch>
 
       </div>

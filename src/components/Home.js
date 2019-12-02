@@ -41,8 +41,8 @@ class Home extends Component {
 
 export default Home;
 
-
-// if res fails to load
+// 404 page - done
+// if res fails to load - done
 // logout functionality
 // how to use conditionals and loops inside render - where to put {}
 // enclosing div tag ka error kyu nahi aaya in AllTests?
