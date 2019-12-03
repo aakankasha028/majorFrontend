@@ -33,6 +33,9 @@ class Navbar extends Component {
                                 <MDBNavLink to={"/login-register"}>Login/Register</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
+                                <MDBNavLink to={"/profile"}>Profile</MDBNavLink>
+                            </MDBNavItem>
+                            <MDBNavItem>
                                 <MDBDropdown>
                                     <MDBDropdownToggle nav caret>
                                         <span className="mr-2">Dropdown</span>

@@ -14,7 +14,7 @@ class IndividualTest extends Component {
 			questionnaire: [],
 			responses: {
 				testName:"",
-				response:[]
+				responseArray:[]
 			}
 		}
 	}
@@ -24,17 +24,24 @@ class IndividualTest extends Component {
 		this.setState({testName: testName});
 		axios.get("https://api.myjson.com/bins/qblgk").then(resp => {
 			// console.log(resp);
-			var responseArray = Array(resp.data.result.length);
-			this.setState({questionnaire: resp.data.result, response: responseArray});
+			var responses = this.state.responses;
+			responses.testName = testName;
+			responses.responseArray = Array(resp.data.result.length);
+			this.setState({questionnaire: resp.data.result, responses: responses});
 			// console.log(this.state.questionnaire);
 		});
 	}
 
 	handleResponses = (event, key) => {
-		var respArr = this.state.response;
-		respArr[key] = event.target.value;
-		this.setState({response: respArr});
-		// console.log(this.state.response);
+		var responses = this.state.responses;
+		responses.responseArray[key] = event.target.value;
+		this.setState({responses: responses});
+		console.log(this.state.responses.responseArray);
+	}
+
+	handleSubmit = (e) => {
+		// make an axios post request as Bhandari asked
+		console.log(this.state.responses);
 	}
 
 	render() {
