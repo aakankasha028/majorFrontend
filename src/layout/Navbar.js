@@ -17,7 +17,7 @@ class Navbar extends Component {
     render() {
         return (
                 <MDBNavbar className={"navbar navbar-expand-lg navbar-dark sticky-top scrolling-navbar"}>
-                    <MDBNavbarBrand>
+                    <MDBNavbarBrand className="titleS">
                         <strong>Navbar</strong>
                     </MDBNavbarBrand>
                     <MDBNavbarToggler onClick={this.toggleCollapse} />

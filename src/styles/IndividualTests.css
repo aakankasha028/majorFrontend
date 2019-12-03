@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Solway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');
+
+.name{
+    align-self: center;
+    font-family: 'Cookie', cursive;
+    margin: 3%;
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+}
+
+.question{
+    background-image: linear-gradient(to right, yellowgreen, lightseagreen);
+    font-family: 'Solway', serif;
+    margin: 3%;
+    border-radius: 15px;
+    position: relative;
+    height: auto;
+}
+.question h2{
+    align-self: center;
+}
+.question h4{
+    margin-left: 2%;
+}
+.question p{
+    margin-left: 3%;
+}
+
+.imageS{
+    top: 0px;
+    right:0px;
+    border-radius: 15px;
+    max-width: 100%;
+    max-height: 100%;
+}

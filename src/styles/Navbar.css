@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
+
 .top-nav-collapse {
     background-color: #000000 !important;
 }
@@ -11,4 +13,8 @@
     .navbar:not(.top-nav-collapse) {
         background: #000000 !important;
     }
+}
+
+.titleS{
+    font-family: 'Kaushan Script',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
 }
