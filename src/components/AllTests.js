@@ -56,8 +56,6 @@ class AllTests extends Component {
 			                        you gave the test was long time ago, which means it has become stale.">
 			                        <FaQuestion/>
 			                    </i>
-                                    <a href={"/tests?test=" + test.testName} className="btn btn-primary">Attempt
-                                        Test</a>
                                 </div>
                             </div>
                         </div>)})}
