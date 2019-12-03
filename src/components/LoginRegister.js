@@ -57,7 +57,7 @@ class LoginRegister extends Component {
 		if (this.state.userDetails.password !== this.state.userDetails.confirmPassword) {
 			str += "Password and Confirm Password don't match!!\n";
 		}
-		// console.log(formatPhoneNumber(this.state.userDetails['phone']));
+		console.log(formatPhoneNumber(this.state.userDetails['phone']));
 		if(formatPhoneNumber(this.state.userDetails['phone']).length !== 10) {
 			str += 'Invalid phone number!!';
 		}
@@ -100,15 +100,13 @@ class LoginRegister extends Component {
                         type="date"
                         required
                     />
-                    <div className="genderborder">
-                        <MDBIcon icon="female"/>
-                    <select className="ss" aria-required="true" id = "gender" onChange={(e) => this.handleRegisterDetails(e, "gender")}>
+                        <MDBIcon icon="female" className="fa-2x prefix"/>
+                    <select className="ss genderborder" aria-required="true" id = "gender" onChange={(e) => this.handleRegisterDetails(e, "gender")}>
                         <option value="" disabled selected>Choose your gender</option>
                         <option value="1">Male</option>
                         <option value="2">Female</option>
                         <option value="3">Prefer not to tell</option>
                     </select>
-                    </div>
                     <MDBInput
                         label="Your address"
                         icon="home"
@@ -133,7 +131,8 @@ class LoginRegister extends Component {
                         onChange={(e) => this.handleRegisterDetails(e, "nationality")}
                         required
                     />
-                    <select
+                    <MDBIcon icon="phone" className="fa-2x prefix"/>
+                    <select className="genderborder"
 						onChange={(e) => this.handleRegisterDetails(e, "country")}>
 						<option value="">
 						{en['ZZ']}
@@ -144,7 +143,7 @@ class LoginRegister extends Component {
 						</option>
 						))}
 					</select>
-                    <Input
+                    <Input className="genderborder"
                     	country={this.state.userDetails['country']}
                     	international
                     	value={this.state.userDetails['phone']}

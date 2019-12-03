@@ -9,9 +9,8 @@
 
 .transbox {
     margin: 15%;
-    background-color: #ffffff;
+    background: rgba(253, 254, 254, 0.5);
     border: 1px solid black;
-    opacity: 0.6;
     filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
@@ -19,4 +18,28 @@
     margin: 10%;
     font-weight: bold;
     color: #000000;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, black, maroon);
+    color: white;
+    border: 0px;
+    margin:2%;
+    padding:1%;
+}
+
+.btn-grad:hover {
+    background-image: linear-gradient(to right, darkgreen, black);
+    color: deeppink;
+    border: 0px;
+    margin:2%;
+    padding:1%;
+}
+
+.linkS{
+    color: white;
+}
+
+.linkS:hover{
+    color: yellowgreen;
 }
