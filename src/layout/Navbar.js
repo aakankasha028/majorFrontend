@@ -17,12 +17,13 @@ class Navbar extends Component {
     render() {
         return (
                 <MDBNavbar className={"navbar navbar-expand-lg navbar-dark sticky-top scrolling-navbar"}>
+                    <div className="container">
                     <MDBNavbarBrand className="titleS">
-                        <strong>Navbar</strong>
+                        <strong>Alcohol De-Addiction Digital Therapist</strong>
                     </MDBNavbarBrand>
                     <MDBNavbarToggler onClick={this.toggleCollapse} />
                     <MDBCollapse isOpen={this.state.isOpen} navbar>
-                        <MDBNavbarNav left>
+                        <MDBNavbarNav right className="linkFont">
                             <MDBNavItem>
                                 <MDBNavLink to={"/"}>Home</MDBNavLink>
                             </MDBNavItem>
@@ -33,35 +34,22 @@ class Navbar extends Component {
                                 <MDBNavLink to={"/login-register"}>Login/Register</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
-                                <MDBDropdown>
-                                    <MDBDropdownToggle nav caret>
-                                        <span className="mr-2">Dropdown</span>
-                                    </MDBDropdownToggle>
-                                    <MDBDropdownMenu color="dark">
-                                        <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                    </MDBDropdownMenu>
-                                </MDBDropdown>
-                            </MDBNavItem>
-                        </MDBNavbarNav>
-                        <MDBNavbarNav right>
+                                <MDBNavLink to={"/profile"}>Profile</MDBNavLink>
+                            </MDBNavItem
                             <MDBNavItem>
                                 <MDBDropdown>
-                                    <MDBDropdownToggle nav caret>
-                                        <MDBIcon icon="user"/>
+                                    <MDBDropdownToggle nav caret className="iconMargin">
+                                        <MDBIcon icon="user" />
                                     </MDBDropdownToggle>
                                     <MDBDropdownMenu right basic>
-                                        <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                                        <MDBDropdownItem href="#!">Profile</MDBDropdownItem>
+                                        <MDBDropdownItem href="#!">My Results</MDBDropdownItem>
                                     </MDBDropdownMenu>
                                 </MDBDropdown>
                             </MDBNavItem>
                         </MDBNavbarNav>
                     </MDBCollapse>
+                    </div>
                 </MDBNavbar>
         );
     }
