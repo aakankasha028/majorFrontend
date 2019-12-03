@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../styles/Profile.css';
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 class Profile extends Component {
 	// Steps
@@ -38,7 +40,7 @@ class Profile extends Component {
 			})
 		return;					
 		}
-		axios.get("http://api.myjson.com/bins/nmpt0").then((resp)=>{
+		axios.get("https://api.myjson.com/bins/t4djo").then((resp)=>{
 			arr[key] = resp.data.result;
 			this.setState({results: arr})
 		})
@@ -49,7 +51,7 @@ class Profile extends Component {
 		return (
 			allTests.length === 0 ?
 			<p>Loading...</p> :
-			<div>
+			<div className="profile">
 				<h1>Results</h1>
 				<ul>
 					{
@@ -66,24 +68,27 @@ class Profile extends Component {
 							<h2 name={test.testname}>{test.testname}</h2>	
 							{/*this.getScoreOfTest(test, key)*/}
 							{(results[key] === undefined || results[key].length === 0) ?
-								<Fragment>
-									<div>Not attempted yet</div>
-									<Link to={"/tests?test="+test.testname}>Attempt Test</Link>
-								</Fragment> :
-								<table>
+								<div>
+									<div className="NA">Not attempted yet</div>
+									<Link className="btn-warning btnS" to={"/tests?test="+test.testname}>Attempt Test</Link>
+								</div> :
+								<table className="table">
 									<tbody>
 										<tr>
-											<th>Parameter</th>
-											<th>Value</th>
+											<th className="black white-text">Parameter</th>
+											<th className="black white-text">Value</th>
+                                            <th className="black white-text" style={{width: "100%"}}>Scale</th>
 										</tr>
 										{results[key].map((result, ikey) => {
 											return (
 												<tr key={ikey}>
 													<td>{result.parameter}</td>
-													<td>{result.score}</td>
+                                                    <td>{result.score} / {result.max} </td>
+													<td><ProgressBar variant="warning" now={result.score} max={result.max}/></td>
 												</tr>
 											)
 									})}
+
 									</tbody>
 								</table>
 							}

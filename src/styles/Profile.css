@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Calistoga&display=swap');
+
+.profile{
+    font-family: 'Acme', sans-serif;
+}
+
+.profile h1{
+    align-self: center;
+    font-family: 'Calistoga', cursive;
+    margin: 3%;
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+}
+
+.profile h2{
+    align-self: center;
+    font-family: 'Cookie', cursive;
+    margin: 3%;
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+}
+
+.profile ul{
+    font-family: 'Cookie', cursive;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    font-size: medium;
+    text-align: left;
+}
+
+.profile a{
+    color: black;
+}
+.btnS{
+    display: inline-block;
+    margin: 1rem;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+}
+
+.NA{
+    font-size: large;
+}

@@ -35,26 +35,7 @@ class Navbar extends Component {
                             </MDBNavItem>
                             <MDBNavItem>
                                 <MDBNavLink to={"/profile"}>Profile</MDBNavLink>
-<<<<<<< HEAD
-                            </MDBNavItem
-=======
                             </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBDropdown>
-                                    <MDBDropdownToggle nav caret>
-                                        <span className="mr-2">Dropdown</span>
-                                    </MDBDropdownToggle>
-                                    <MDBDropdownMenu color="dark">
-                                        <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                    </MDBDropdownMenu>
-                                </MDBDropdown>
-                            </MDBNavItem>
-                        </MDBNavbarNav>
-                        <MDBNavbarNav right>
->>>>>>> 443ba98d7883deaa8b4c810e2f4bae366fd3c975
                             <MDBNavItem>
                                 <MDBDropdown>
                                     <MDBDropdownToggle nav caret className="iconMargin">

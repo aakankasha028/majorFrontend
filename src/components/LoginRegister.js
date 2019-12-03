@@ -155,8 +155,10 @@ class LoginRegister extends Component {
 						placeholder="Enter phone number"
 						onChange={(e)=> this.handlePhone(e)}
 					/>*/}
-                    <input type="tel" pattern="[1-9][0-9]{9}" id="phone" onChange={(e) => this.handleRegisterDetails(e, "phone")} /> (Enter a 10 digit number)
-                    {/*<MDBInput
+					<div className="genderborder">
+                    <input className="telborder" type="tel" pattern="[1-9][0-9]{9}" id="phone" onChange={(e) => this.handleRegisterDetails(e, "phone")} /> (Enter a 10 digit number)
+                    </div>
+                        {/*<MDBInput
                         label="Your Phone Number"
                         id="phone"
                         icon="phone"
