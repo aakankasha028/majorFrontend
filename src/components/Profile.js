@@ -20,7 +20,13 @@ class Profile extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("https://api.myjson.com/bins/7xbn0").then((resp) => {
+		/*var config = {
+   		headers: {
+	      Authorization: "JWT " + window.localStorage.getItem('jwt');
+   		}
+		}*/
+		var config = {}
+		axios.get("https://api.myjson.com/bins/7xbn0", config).then((resp) => {
 			// console.log(resp);
 			// console.log(resp.data);
 			var arr = Array(resp.data.results.length);
@@ -32,16 +38,22 @@ class Profile extends Component {
 	}
 
 	getScoreOfTest = (testCode, key) => {		
+		/*var config = {
+	   headers: {
+	      Authorization: "JWT " + window.localStorage.getItem('jwt');
+	   }
+		}*/
+		var config = {}
 		var arr = this.state.results;
-		console.log(key);
+		// console.log(key);
 		if (key & 1) {
-			axios.get("https://api.myjson.com/bins/833z0").then((resp)=>{
+			axios.get("https://api.myjson.com/bins/833z0", config).then((resp)=>{
 				arr[key] = resp.data.result;
 				this.setState({results: arr})
 			})
 		return;					
 		}
-		axios.get("https://api.myjson.com/bins/t4djo").then((resp)=>{
+		axios.get("https://api.myjson.com/bins/t4djo", config).then((resp)=>{
 			arr[key] = resp.data.result;
 			this.setState({results: arr})
 		})
@@ -70,19 +82,19 @@ class Profile extends Component {
                     </button>
                 </div>
 				<h1>Results</h1>
-				<ul>
+				{/*<ul>
 					{
 						allTests.map((test, key) => 
 							<li key={key}>
 								<a href={"#"+test.testname}>{test.testname}</a>
 							</li>
 					)}
-				</ul>
-
+				</ul>*/}
 				{allTests.map((test, key) => {
 					return (
 						<Fragment key={key}>
-							<h2 name={test.testname}>{test.testname}</h2>	
+							<hr />
+							<h2 name={test.testname}>Test: {test.testname}</h2>	
 							{/*this.getScoreOfTest(test, key)*/}
 							{(results[key] === undefined || results[key].length === 0) ?
 								<div>
@@ -93,7 +105,7 @@ class Profile extends Component {
 									<tbody>
 										<tr>
 											<th className="black white-text">Parameter</th>
-											<th className="black white-text">Value</th>
+											<th className="black white-text">Score</th>
                                             <th className="black white-text" style={{width: "100%"}}>Scale</th>
 										</tr>
 										{results[key].map((result, ikey) => {

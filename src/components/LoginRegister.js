@@ -46,8 +46,13 @@ class LoginRegister extends Component {
 	}
 
 	handleLoginSubmit = (event) => {
-		// todo: make a request to the backend to login user
-		localStorage.setItem("email", this.state.loginDetails.email);
+		/*axios.post("", this.state.loginDetails).then(resp => {
+            console.log(resp);
+            window.localStorage.setItem("jwt", resp.data.accessToken);
+        })*/
+        console.log("here" + this.state.loginDetails["email"]);
+		window.localStorage.setItem("email", this.state.loginDetails["email"]);
+        console.log(window.localStorage.getItem("email"));
 	}
 
 	handleRegisterSubmit = (event) => {
@@ -70,10 +75,11 @@ class LoginRegister extends Component {
         userRegistrationDetails["title"] = userRegistrationDetails["gender"] === "MALE" ? "Mr." : (userRegistrationDetails["gender"] === "FEMALE" ? "Mrs." : "");
         delete userRegistrationDetails.confirmPassword;
         console.log(userRegistrationDetails);
-        /*axios.post("", {userRegistrationDetails}).then(resp => {
+        /*axios.post("", userRegistrationDetails).then(resp => {
             console.log(resp);
+            window.localStorage.setItem("jwt", resp.data.accessToken);
         })*/
-		localStorage.setItem("email", this.state.loginDetails.email);
+		window.localStorage.setItem("email", this.state.loginDetails["email"]);
 	}
 
 	handlePhone = (e) => {
@@ -246,6 +252,7 @@ class LoginRegister extends Component {
                         validate
                         error="wrong"
                         success="right"
+                        onChange={(e) => this.handleLoginDetails(e, "email")}
                         required
                     />
                     <MDBInput
@@ -254,6 +261,7 @@ class LoginRegister extends Component {
                         group
                         id="password"
                         type="password"
+                        onChange={(e) => this.handleLoginDetails(e, "password")}
                         validate
                         required
                     />

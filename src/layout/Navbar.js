@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,
     MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon
@@ -13,7 +13,10 @@ class Navbar extends Component {
         this.setState({ isOpen: !this.state.isOpen });
     }
 
-
+    handleLogout = () => {
+        window.localStorage.setItem("email", "undefined");
+        this.forceUpdate();
+    }
     render() {
         return (
                 <MDBNavbar className={"navbar navbar-expand-lg navbar-dark sticky-top scrolling-navbar"}>
@@ -27,15 +30,22 @@ class Navbar extends Component {
                             <MDBNavItem>
                                 <MDBNavLink to={"/"}>Home</MDBNavLink>
                             </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBNavLink to={"/all-tests"}>Tests</MDBNavLink>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBNavLink to={"/login-register"}>Login/Register</MDBNavLink>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBNavLink to={"/profile"}>Profile</MDBNavLink>
-                            </MDBNavItem>
+                            {(window.localStorage.getItem("email") === "undefined") || (window.localStorage.getItem("email") === null) ? 
+                                <MDBNavItem>
+                                    <MDBNavLink to={"/login-register"}>Login/Register</MDBNavLink>
+                                </MDBNavItem> :
+                                <Fragment>
+                                    <MDBNavItem>
+                                        <MDBNavLink to={"/all-tests"}>Tests</MDBNavLink>
+                                    </MDBNavItem>
+                                    <MDBNavItem>
+                                        <MDBNavLink to={"/profile"}>Profile</MDBNavLink>
+                                    </MDBNavItem>
+                                    <MDBNavItem>
+                                        <MDBNavLink to={"/"} onClick={() => this.handleLogout()}>Logout</MDBNavLink>
+                                    </MDBNavItem>
+                                </Fragment>
+                            }
                             <MDBNavItem>
                                 <MDBDropdown>
                                     <MDBDropdownToggle nav caret className="iconMargin">

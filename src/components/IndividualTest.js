@@ -52,7 +52,12 @@ class IndividualTest extends Component {
 			e.preventDefault();
 			alert("You must complete all questions before submitting the test!");
 		}
-		/*axios.post("", {this.state.responses}).then((resp) => {
+		/*var config = {
+	   		headers: {
+	      		Authorization: "JWT " + window.localStorage.getItem('jwt');
+	   		}
+		}
+		axios.post("", this.state.responses, config).then((resp) => {
 			console.log(resp);
 		})*/
 	}

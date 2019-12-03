@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import '../styles/Home.css';
 import { NavLink } from 'react-router-dom';
 
 class Home extends Component {
     render() {
         return(
-            <header class="backgroundS">
+            <header className="backgroundS">
                 {/*<div className="backgroundS">
                     <div className="transbox">
                         <p>Just a test.
@@ -18,12 +18,19 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>*/}
-                    <div class="container">
-                        <div class="intro-text">
-                            <div class="intro-lead-in">Welcome To Alcohol De-Addiction Digital Therapist!</div>
-                            <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+                    <div className="container">
+                        <div className="intro-text">
+                            <div className="intro-lead-in">Welcome To Alcohol De-Addiction Digital Therapist!</div>
+                            <div className="intro-heading text-uppercase">It's Nice To Meet You</div>
                             <div className="btn-div">
-                            <NavLink className="btn-grad" to={'/login-register'}>Get Started</NavLink>
+                            {(window.localStorage.getItem("email") === "undefined") || (window.localStorage.getItem("email") === null) ?
+                                <NavLink className="btn-grad" to={'/login-register'}>Get Started</NavLink> :
+                                <Fragment>
+                                    <NavLink className="btn-grad" to={'/all-tests'}>Complete your tests</NavLink>
+                                    &emsp; &emsp;
+                                    <NavLink className="btn-grad" to={'/profile'}>Get your score</NavLink>
+                                </Fragment>
+                            }
                             </div>
                         </div>
                     </div>
@@ -34,6 +41,7 @@ class Home extends Component {
 
 export default Home;
 
+// private routes and routes with authentication
 // 404 page - done
 // if res fails to load - done
 // logout functionality
