@@ -51,5 +51,7 @@
 }
 
 .tableS{
+    border: black;
+    width: auto;
     margin: 3%;
 }

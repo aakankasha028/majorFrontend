@@ -56,6 +56,7 @@ class Profile extends Component {
                 <h1>User Details</h1>
                 <div style={{position: "relative"}}>
                 <p>
+                    UserId: <br></br>
                     Name: <br></br>
                     Date of Birth: <br></br>
                     Gender: <br></br>
