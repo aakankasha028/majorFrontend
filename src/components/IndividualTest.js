@@ -22,12 +22,12 @@ class IndividualTest extends Component {
 	componentDidMount() {
 		var testName = this.props.location.search.split("=")[1];
 		this.setState({testName: testName});
-		axios.get("https://api.myjson.com/bins/qblgk").then(resp => {
+		axios.get("https://api.myjson.com/bins/vhg1o").then(resp => {
 			// console.log(resp);
 			var responses = this.state.responses;
 			responses.testName = testName;
-			responses.responseArray = Array(resp.data.result.length);
-			this.setState({questionnaire: resp.data.result, responses: responses});
+			responses.responseArray = Array(resp.data.questions.length);
+			this.setState({questionnaire: resp.data.questions, responses: responses});
 			// console.log(this.state.questionnaire);
 		});
 	}
@@ -36,12 +36,25 @@ class IndividualTest extends Component {
 		var responses = this.state.responses;
 		responses.responseArray[key] = event.target.value;
 		this.setState({responses: responses});
-		console.log(this.state.responses.responseArray);
+		// console.log(this.state.responses.responseArray);
 	}
 
 	handleSubmit = (e) => {
 		// make an axios post request as Bhandari asked
-		console.log(this.state.responses);
+		// console.log(this.state.responses.responseArray.join('~'));
+		var hasUndefined=false;
+		for (var lc=0;lc<this.state.responses.responseArray.length; lc++) {
+			if (this.state.responses.responseArray[lc] === undefined) {
+				hasUndefined = true;
+			}
+		}
+		if (hasUndefined) {
+			e.preventDefault();
+			alert("You must complete all questions before submitting the test!");
+		}
+		/*axios.post("", {this.state.responses}).then((resp) => {
+			console.log(resp);
+		})*/
 	}
 
 	render() {
@@ -54,23 +67,24 @@ class IndividualTest extends Component {
                 {
                     this.state.questionnaire.map((obj, key) => {
 				return (
-					<div className="question text-left">
+					<div className="question text-left" key={key}>
+					<form action="/all-tests">
                         <div className="row">
                         <div className="col-lg-6">
                         <h4>
-					<div id="question">{key+1}. {obj.question}</div>
+							<div id="question">{key+1}. {obj.text}</div>
                         </h4>
                         <p>
-					{obj.responses.map((response, ikey) => {
+					{obj.possibleOptions.map((response, ikey) => {
 						return (
-							<Fragment>
+							<Fragment key={ikey}>
 								<input 
 								type="radio"
 								name={"resp"+key}
-								value={response.name} 
 								onChange = {(e) => this.handleResponses(e, key)}
+								required
 							/>
-								{response.value}
+								{response.serialNumber}. {response.optionValue}
 								&emsp;
                                 <br></br>
 							</Fragment>
@@ -80,13 +94,23 @@ class IndividualTest extends Component {
                         </p>
                         </div>
                         <div className="col-lg-6 col-sm-4 col-md-5">
-                        <img src={sampleImg} className="imageS float-right" />
+                        	<img src={sampleImg} alt="Glass, drink" className="imageS float-right" />
                         </div>
-					</div>
+						</div>
+						<NavLink 
+							to={"/all-tests"}
+							type="submit"
+							className="btn btn-primary" 
+							onClick={(e)=>this.handleSubmit(e)} 
+							value="Submit"
+						>
+						Submit
+						</NavLink>
+						</form>
                     </div>
 				)
 			})
-    }
+    		}
                 </div>
 		);
 	}	

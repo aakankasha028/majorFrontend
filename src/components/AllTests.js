@@ -36,7 +36,7 @@ class AllTests extends Component {
 	                {tests.map((test, key) => {
                         // console.log(test);
                         
-                        return (<div className="col-lg-5 col-md-7 col-sm-7" style={{margin: "4%"}}>
+                        return (<div key={key} className="col-lg-5 col-md-7 col-sm-7" style={{margin: "4%"}}>
 
                             <div className="card" style={{margin:'1em 0'}}>
 

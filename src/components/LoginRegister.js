@@ -31,7 +31,7 @@ class LoginRegister extends Component {
 		};
 	}
 
-	handleRegisterDetails = (event, key) => {
+	handleRegistrationDetails = (event, key) => {
 		event.preventDefault();
 		var userDt = this.state.userDetails;
 		userDt[key] = event.target.value;
@@ -55,21 +55,24 @@ class LoginRegister extends Component {
 		if (this.state.userDetails.password !== this.state.userDetails.confirmPassword) {
 			str += "Password and Confirm Password don't match!!\n";
 		}
-		// console.log(formatPhoneNumber(this.state.userDetails['phone'].replace(/^0+/, '')));
-        console.log(isPossiblePhoneNumber);
-		// if(isPossiblePhoneNumber(this.state.userDetails['phone'])) {
-		// 	str += 'Invalid phone number!!\n';
-		// }
         var dob = new Date(this.state.userDetails['dob']), today = new Date();
         if (today < dob) {
             str += 'Date of birth can\'t be a future date!';
         }
-		if(str.length != 0) {
+		if(str.length !== 0) {
             event.preventDefault();
 			alert(str);
 		}
 		
 		// make axios post request
+        var userRegistrationDetails = this.state.userDetails;
+        userRegistrationDetails["dateOfBirth"] = new Date(userRegistrationDetails["dateOfBirth"]).toISOString();
+        userRegistrationDetails["title"] = userRegistrationDetails["gender"] === "MALE" ? "Mr." : (userRegistrationDetails["gender"] === "FEMALE" ? "Mrs." : "");
+        delete userRegistrationDetails.confirmPassword;
+        console.log(userRegistrationDetails);
+        /*axios.post("", {userRegistrationDetails}).then(resp => {
+            console.log(resp);
+        })*/
 		localStorage.setItem("email", this.state.loginDetails.email);
 	}
 
@@ -85,6 +88,18 @@ class LoginRegister extends Component {
 			<form action="/" onSubmit={(e) => this.handleRegisterSubmit(e)}>
                 <div className="grey-text text-left">
                     <MDBInput
+                        label="Username"
+                        icon="user"
+                        id="username"
+                        group
+                        type="text"
+                        validate
+                        error="wrong"
+                        success="right"
+                        onChange={(e) => this.handleRegistrationDetails(e, "username")}
+                        required
+                    />
+                    <MDBInput
                         label="Your name"
                         icon="user"
                         id="name"
@@ -93,24 +108,24 @@ class LoginRegister extends Component {
                         validate
                         error="wrong"
                         success="right"
-                        onChange={(e) => this.handleRegisterDetails(e, "name")}
+                        onChange={(e) => this.handleRegistrationDetails(e, "name")}
                         required
                     />
                     <MDBInput
                         label="Date of Birth"
-                        id="dob"
+                        id="dateOfBirth"
                         icon="calendar-alt"
                         group
                         type="date"
-                        onChange={(e) => this.handleRegisterDetails(e, "dob")}
+                        onChange={(e) => this.handleRegistrationDetails(e, "dateOfBirth")}
                         required
                     />
                         <MDBIcon icon="female" className="fa-2x prefix"/>
-                    <select className="ss genderborder" aria-required="true" id = "gender" onChange={(e) => this.handleRegisterDetails(e, "gender")}>
-                        <option value="" disabled selected>Choose your gender</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                        <option value="3">Prefer not to tell</option>
+                    <select className="ss genderborder" defaultValue="" aria-required="true" id = "gender" onChange={(e) => this.handleRegistrationDetails(e, "gender")}>
+                        <option value="" disabled>Choose your gender</option>
+                        <option value="MALE">Male</option>
+                        <option value="FEMALE">Female</option>
+                        <option value="OTHER">Prefer not to tell</option>
                     </select>
                     <MDBInput
                         label="Your address"
@@ -121,7 +136,7 @@ class LoginRegister extends Component {
                         validate
                         error="wrong"
                         success="right"
-                        onChange={(e) => this.handleRegisterDetails(e, "address")}
+                        onChange={(e) => this.handleRegistrationDetails(e, "address")}
                         required
                     />
                     <MDBInput
@@ -133,12 +148,12 @@ class LoginRegister extends Component {
                         validate
                         error="wrong"
                         success="right"
-                        onChange={(e) => this.handleRegisterDetails(e, "nationality")}
+                        onChange={(e) => this.handleRegistrationDetails(e, "nationality")}
                         required
                     />
                     <MDBIcon icon="phone" className="fa-2x prefix"/>
                     <select className="genderborder"
-						onChange={(e) => this.handleRegisterDetails(e, "country")}>
+						onChange={(e) => this.handleRegistrationDetails(e, "country")}>
 						<option value="">
 						{en['ZZ']}
 						</option>
@@ -158,7 +173,7 @@ class LoginRegister extends Component {
 					<div className="genderborder">
                     <input className="telborder" type="tel" pattern="[1-9][0-9]{9}" id="phone" onChange={(e) => this.handleRegisterDetails(e, "phone")} /> (Enter a 10 digit number)
                     </div>
-                        {/*<MDBInput
+                    {/*<MDBInput
                         label="Your Phone Number"
                         id="phone"
                         icon="phone"
@@ -168,7 +183,7 @@ class LoginRegister extends Component {
                         validate
                         error="wrong"
                         success="right"
-                        onChange={(e) => this.handleRegisterDetails(e, "phone")}
+                        onChange={(e) => this.handleRegistrationDetails(e, "phone")}
                     />*/}
                     <MDBInput
                         label="Your email"
@@ -179,7 +194,7 @@ class LoginRegister extends Component {
                         validate
                         error="wrong"
                         success="right"
-                        onChange={(e) => this.handleRegisterDetails(e, "email")}
+                        onChange={(e) => this.handleRegistrationDetails(e, "email")}
                         required
                     />
                     <MDBInput
@@ -188,7 +203,7 @@ class LoginRegister extends Component {
                         icon="lock"
                         group
                         type="password"
-                        onChange={(e) => this.handleRegisterDetails(e, "password")}
+                        onChange={(e) => this.handleRegistrationDetails(e, "password")}
                         validate
                         required
                     />
@@ -201,7 +216,7 @@ class LoginRegister extends Component {
                         validate
                         error="wrong"
                         success="right"
-                        onChange={(e) => this.handleRegisterDetails(e, "confirmPassword")}
+                        onChange={(e) => this.handleRegistrationDetails(e, "confirmPassword")}
                         required
                     />
                 </div>
