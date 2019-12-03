@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import '../styles/IndividualTests.css';
 import sampleImg from "../resources/shutterstock_755503213-e1510778527788.jpg";
+import '../styles/Home.css';
+import { NavLink } from 'react-router-dom';
 
 class IndividualTest extends Component {
 	constructor(props) {
