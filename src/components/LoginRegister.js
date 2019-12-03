@@ -46,22 +46,21 @@ class LoginRegister extends Component {
 	}
 
 	handleLoginSubmit = (event) => {
-		event.preventDefault();
 		// todo: make a request to the backend to login user
 		localStorage.setItem("email", this.state.loginDetails.email);
 	}
 
 	handleRegisterSubmit = (event) => {
-		event.preventDefault();
 		var str = "";
 		if (this.state.userDetails.password !== this.state.userDetails.confirmPassword) {
 			str += "Password and Confirm Password don't match!!\n";
 		}
 		console.log(formatPhoneNumber(this.state.userDetails['phone']));
-		if(formatPhoneNumber(this.state.userDetails['phone']).length !== 10) {
+		if(formatPhoneNumber(this.state.userDetails['phone']).length !== 11) {
 			str += 'Invalid phone number!!';
 		}
 		if(str.length != 0) {
+            event.preventDefault();
 			alert(str);
 		}
 		
@@ -78,7 +77,7 @@ class LoginRegister extends Component {
 
 	renderRegister = () => {
 		return (
-			<form onSubmit={(e) => this.handleRegisterSubmit(e)}>
+			<form action="/" onSubmit={(e) => this.handleRegisterSubmit(e)}>
                 <div className="grey-text text-left">
                     <MDBInput
                         label="Your name"
@@ -212,7 +211,7 @@ class LoginRegister extends Component {
 
 	renderLogin = () => {
 		return (
-			<form onSubmit={(e) => this.handleLoginSubmit(e)}>
+			<form action="/" onSubmit={(e) => this.handleLoginSubmit(e)}>
                 <div className="grey-text text-left">
                     <MDBInput
                         label="Type your email"

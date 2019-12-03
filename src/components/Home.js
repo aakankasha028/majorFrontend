@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/Home.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Home extends Component {
     render() {
@@ -14,7 +14,7 @@ class Home extends Component {
                             How you doin'?
                         </p>
 
-                        <button className="btn-grad deep-blue-gradient"><Link className="linkS" to={'login-register'}>Get Started</Link></button>
+                        <NavLink className="btn-grad deep-blue-gradient" to={'/login-register'}>Get Started</NavLink>
                     </div>
                 </div>
                 <h1>
