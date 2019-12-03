@@ -19,6 +19,7 @@ class IndividualTest extends Component {
 
 	componentDidMount() {
 		var testName = this.props.location.search.split("=")[1];
+		this.setState({testName: testName});
 		axios.get("https://api.myjson.com/bins/qblgk").then(resp => {
 			// console.log(resp);
 			var responseArray = Array(resp.data.result.length);
@@ -40,7 +41,7 @@ class IndividualTest extends Component {
 			this.state.questionnaire.length === 0 ? 
 			<p>Loading...</p> :
                 <div>
-                    <h2 className="name">Questionnaire name</h2>
+                    <h2 className="name">{this.state.testName}</h2>
                 {
                     this.state.questionnaire.map((obj, key) => {
 				return (
