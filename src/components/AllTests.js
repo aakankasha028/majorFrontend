@@ -26,35 +26,36 @@ class AllTests extends Component {
 
     render() {
         var tests = this.state.tests;
-        return this.state.tests.length === 0 ?
+        return (
+        	this.state.tests.length === 0 ?
             this.state.error.length === 0? <div>Loading...</div> : <div>{this.state.error}</div> :
-                tests.map((test, key) => {
+                <div className="row">
+	                {tests.map((test, key) => {
                         console.log(test);
-                        return (
-                            <div align="middle" className="col-lg-4 col-md-4">
+                        
+                        return (<div align="middle" className="col-lg-4 col-md-4">
 
-                                <div className="card">
+                            <div className="card" style={{margin:'1em 0'}}>
 
-                                    <div className="view">
-                                        <img
-                                            src="https://www.news-medical.net/image.axd?picture=2019%2F3%2FGroup_of_friends_having_drinks_whiskey_at_the_night_club_after_work_._Young_men_drink_whiskey_and_enjoying_at_a_bar_toasting_cocktails-bluedog_studios.jpg"
-                                            className="card-img-top"
-                                            alt="Man, drinking"/>
-                                    </div>
+                                <div className="view">
+                                    <img
+                                        src="https://www.news-medical.net/image.axd?picture=2019%2F3%2FGroup_of_friends_having_drinks_whiskey_at_the_night_club_after_work_._Young_men_drink_whiskey_and_enjoying_at_a_bar_toasting_cocktails-bluedog_studios.jpg"
+                                        className="card-img-top"
+                                        alt="Man, drinking"/>
+                                </div>
 
-                                    <div className="card-body">
-                                        <h4 className="card-title"><Test testName={test["testName"]}
-                                                                         completedDate={test["completedOn"]}/></h4>
+                                <div className="card-body">
+                                    <h4 className="card-title"><Test testName={test["testName"]}
+                                                                     completedDate={test["completedOn"]}/></h4>
 
-                                        <a href={"/tests?test=" + this.props.testName} className="btn btn-primary">Attempt
-                                            Test</a>
-                                    </div>
+                                    <a href={"/tests?test=" + test.testName} className="btn btn-primary">Attempt
+                                        Test</a>
                                 </div>
                             </div>
-                        );
-                    }
-                );
-    }
+                        </div>)})}
+	                </div>
+                    );
+                }
 }
 
 export default AllTests;
