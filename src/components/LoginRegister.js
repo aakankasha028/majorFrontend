@@ -55,10 +55,11 @@ class LoginRegister extends Component {
 		if (this.state.userDetails.password !== this.state.userDetails.confirmPassword) {
 			str += "Password and Confirm Password don't match!!\n";
 		}
-		console.log(formatPhoneNumber(this.state.userDetails['phone']));
-		if(formatPhoneNumber(this.state.userDetails['phone']).replace(/^0+/, '').length !== 10) {
-			str += 'Invalid phone number!!\n';
-		}
+		// console.log(formatPhoneNumber(this.state.userDetails['phone'].replace(/^0+/, '')));
+        console.log(isPossiblePhoneNumber);
+		// if(isPossiblePhoneNumber(this.state.userDetails['phone'])) {
+		// 	str += 'Invalid phone number!!\n';
+		// }
         var dob = new Date(this.state.userDetails['dob']), today = new Date();
         if (today < dob) {
             str += 'Date of birth can\'t be a future date!';
@@ -147,13 +148,14 @@ class LoginRegister extends Component {
 						</option>
 						))}
 					</select>
-                    <Input className="genderborder"
+                    {/*<Input className="genderborder"
                     	country={this.state.userDetails['country']}
                     	international
                     	value={this.state.userDetails['phone']}
 						placeholder="Enter phone number"
 						onChange={(e)=> this.handlePhone(e)}
-					/>
+					/>*/}
+                    <input type="tel" pattern="[1-9][0-9]{9}" id="phone" onChange={(e) => this.handleRegisterDetails(e, "phone")} /> (Enter a 10 digit number)
                     {/*<MDBInput
                         label="Your Phone Number"
                         id="phone"
