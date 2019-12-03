@@ -13,8 +13,9 @@ class Home extends Component {
                             </br>
                             How you doin'?
                         </p>
-
-                        <NavLink className="btn-grad deep-blue-gradient" to={'/login-register'}>Get Started</NavLink>
+                        <div>
+                        <NavLink className="btn-grad" to={'/login-register'}>Get Started</NavLink>
+                        </div>
                     </div>
                 </div>
                 <h1>
