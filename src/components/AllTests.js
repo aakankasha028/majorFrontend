@@ -14,7 +14,13 @@ class AllTests extends Component {
     }
 
     componentDidMount() {
-        axios.get("https://api.myjson.com/bins/1g475q").then(res => {
+        /*var config = {
+       headers: {
+          Authorization: "JWT " + window.localStorage.getItem('jwt');
+       }
+        }*/
+        var config = {}
+        axios.get("https://api.myjson.com/bins/1g475q", config).then(res => {
             if (res.status !== "200") {
                 this.setState({tests: res.data.results});
             } else {
