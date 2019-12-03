@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { FaQuestion, FaExclamation } from 'react-icons/fa';
 
 class Test extends Component {
 	render() {
@@ -9,6 +8,7 @@ class Test extends Component {
                 <h4 style={{display:'inline'}}>
                     {this.props.completedDate === "00-00-0000" ? "Not completed yet" : "Completed on: " + this.props.completedDate }
                 </h4>
+
             </div>
         );
 	}
