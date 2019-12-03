@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Test from './Test.js';
+import { FaQuestion } from 'react-icons/fa';
 
 class AllTests extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class AllTests extends Component {
             this.state.error.length === 0? <div>Loading...</div> : <div>{this.state.error}</div> :
                 <div className="row">
 	                {tests.map((test, key) => {
-                        console.log(test);
+                        // console.log(test);
                         
                         return (<div align="middle" className="col-lg-4 col-md-4">
 
@@ -44,10 +45,15 @@ class AllTests extends Component {
                                         alt="Man, drinking"/>
                                 </div>
 
-                                <div className="card-body">
+                                <div className="card-body" style={{position:'relative'}}>
                                     <h4 className="card-title"><Test testName={test["testName"]}
                                                                      completedDate={test["completedOn"]}/></h4>
-
+								<i style={{position:'absolute', top:'0.5em', right:'0.5em'}}
+			                        title="You must complete all your tests within 4 months of the completed date from 
+			                        the first test else your progress would be lost.&#013;Not completed yet means either you have not given the test or the last time 
+			                        you gave the test was long time ago, which means it has become stale.">
+			                        <FaQuestion/>
+			                    </i>
                                     <a href={"/tests?test=" + test.testName} className="btn btn-primary">Attempt
                                         Test</a>
                                 </div>
