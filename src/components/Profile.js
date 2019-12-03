@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../styles/Profile.css';
-import ProgressBar from 'react-bootstrap/ProgressBar'
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import { FaPen } from 'react-icons/fa';
 
 class Profile extends Component {
 	// Steps
@@ -52,6 +53,21 @@ class Profile extends Component {
 			allTests.length === 0 ?
 			<p>Loading...</p> :
 			<div className="profile">
+                <h1>User Details</h1>
+                <div style={{position: "relative"}}>
+                <p>
+                    Name: <br></br>
+                    Date of Birth: <br></br>
+                    Gender: <br></br>
+                    Address: <br></br>
+                    Nationality: <br></br>
+                    Phone-No: <br></br>
+                    e-mail: <br></br>
+                </p>
+                    <button style={{position: "absolute", top:"0rem", right:"2rem", background: "transparent", border:"0px"}}>
+                        <FaPen/>
+                    </button>
+                </div>
 				<h1>Results</h1>
 				<ul>
 					{
@@ -72,7 +88,7 @@ class Profile extends Component {
 									<div className="NA">Not attempted yet</div>
 									<Link className="btn-warning btnS" to={"/tests?test="+test.testname}>Attempt Test</Link>
 								</div> :
-								<table className="table">
+								<table className="table tableS">
 									<tbody>
 										<tr>
 											<th className="black white-text">Parameter</th>
