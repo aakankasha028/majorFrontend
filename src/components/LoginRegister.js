@@ -56,9 +56,13 @@ class LoginRegister extends Component {
 			str += "Password and Confirm Password don't match!!\n";
 		}
 		console.log(formatPhoneNumber(this.state.userDetails['phone']));
-		if(formatPhoneNumber(this.state.userDetails['phone']).length !== 11) {
-			str += 'Invalid phone number!!';
+		if(formatPhoneNumber(this.state.userDetails['phone']).replace(/^0+/, '').length !== 10) {
+			str += 'Invalid phone number!!\n';
 		}
+        var dob = new Date(this.state.userDetails['dob']), today = new Date();
+        if (today < dob) {
+            str += 'Date of birth can\'t be a future date!';
+        }
 		if(str.length != 0) {
             event.preventDefault();
 			alert(str);
@@ -97,6 +101,7 @@ class LoginRegister extends Component {
                         icon="calendar-alt"
                         group
                         type="date"
+                        onChange={(e) => this.handleRegisterDetails(e, "dob")}
                         required
                     />
                         <MDBIcon icon="female" className="fa-2x prefix"/>
