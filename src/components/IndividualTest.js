@@ -105,7 +105,7 @@ class IndividualTest extends Component {
 						<NavLink 
 							to={"/all-tests"}
 							type="submit"
-							className="btn btn-primary" 
+							className="btn btn-warning"
 							onClick={(e)=>this.handleSubmit(e)} 
 							value="Submit"
 						>

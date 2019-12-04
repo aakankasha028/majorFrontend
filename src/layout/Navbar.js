@@ -39,9 +39,6 @@ class Navbar extends Component {
                                         <MDBNavLink to={"/all-tests"}>Tests</MDBNavLink>
                                     </MDBNavItem>
                                     <MDBNavItem>
-                                        <MDBNavLink to={"/profile"}>Profile</MDBNavLink>
-                                    </MDBNavItem>
-                                    <MDBNavItem>
                                         <MDBNavLink to={"/"} onClick={() => this.handleLogout()}>Logout</MDBNavLink>
                                     </MDBNavItem>
                                 </Fragment>
@@ -52,8 +49,8 @@ class Navbar extends Component {
                                         <MDBIcon icon="user" />
                                     </MDBDropdownToggle>
                                     <MDBDropdownMenu right basic>
-                                        <MDBDropdownItem href="#!">Profile</MDBDropdownItem>
-                                        <MDBDropdownItem href="#!">My Results</MDBDropdownItem>
+                                        <MDBDropdownItem href="/profile">Profile</MDBDropdownItem>
+                                        <MDBDropdownItem href="/profile">My Results</MDBDropdownItem>
                                     </MDBDropdownMenu>
                                 </MDBDropdown>
                             </MDBNavItem>
