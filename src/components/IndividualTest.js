@@ -39,23 +39,28 @@ class IndividualTest extends Component {
 		// console.log(this.state.responses.responseArray);
 	}
 
-	handleSubmit = (e) => {
-		// make an axios post request as Bhandari asked
-		// console.log(this.state.responses.responseArray.join('~'));
-		var hasUndefined=false;
-		for (var lc=0;lc<this.state.responses.responseArray.length; lc++) {
-			if (this.state.responses.responseArray[lc] === undefined) {
-				hasUndefined = true;
-			}
-		}
-		if (hasUndefined) {
-			e.preventDefault();
-			alert("You must complete all questions before submitting the test!");
-		}
-		/*axios.post("", {this.state.responses}).then((resp) => {
-			console.log(resp);
-		})*/
-	}
+    handleSubmit = (e) => {
+        // make an axios post request as Bhandari asked
+        // console.log(this.state.responses.responseArray.join('~'));
+        var hasUndefined=false;
+        for (var lc=0;lc<this.state.responses.responseArray.length; lc++) {
+            if (this.state.responses.responseArray[lc] === undefined) {
+                hasUndefined = true;
+            }
+        }
+        if (hasUndefined) {
+            e.preventDefault();
+            alert("You must complete all questions before submitting the test!");
+        }
+        /*var config = {
+               headers: {
+                  Authorization: "JWT " + window.localStorage.getItem('jwt');
+               }
+        }
+        axios.post("", this.state.responses, config).then((resp) => {
+            console.log(resp);
+        })*/
+    }
 
 	render() {
 
@@ -93,27 +98,27 @@ class IndividualTest extends Component {
 					)}
                         </p>
                         </div>
-                        <div className="col-lg-6 col-sm-4 col-md-5">
-                        	<img src={sampleImg} alt="Glass, drink" className="imageS float-right" />
+                            <div className="col-lg-6 col-sm-4 col-md-5">
+                                <img src={sampleImg} alt="Glass, drink" className="imageS float-right" />
+                            </div>
                         </div>
-						</div>
-						<NavLink 
-							to={"/all-tests"}
-							type="submit"
-							className="btn btn-primary" 
-							onClick={(e)=>this.handleSubmit(e)} 
-							value="Submit"
-						>
-						Submit
-						</NavLink>
-						</form>
+                        <NavLink
+                            to={"/all-tests"}
+                            type="submit"
+                            className="btn btn-primary"
+                            onClick={(e)=>this.handleSubmit(e)}
+                            value="Submit"
+                        >
+                            Submit
+                        </NavLink>
+                    </form>
                     </div>
-				)
-			})
-    		}
+                )
+                    })
+                }
                 </div>
-		);
-	}	
+        );
+    }
 }
 
 export default IndividualTest;
