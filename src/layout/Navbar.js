@@ -22,7 +22,7 @@ class Navbar extends Component {
                 <MDBNavbar className={"navbar navbar-expand-lg navbar-dark sticky-top scrolling-navbar"}>
                     <div className="container">
                     <MDBNavbarBrand className="titleS">
-                        <strong>Alcohol De-Addiction Digital Therapist</strong>
+                        <strong>ADDT</strong>
                     </MDBNavbarBrand>
                     <MDBNavbarToggler onClick={this.toggleCollapse} />
                     <MDBCollapse isOpen={this.state.isOpen} navbar>
